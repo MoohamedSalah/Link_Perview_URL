@@ -1,0 +1,30 @@
+﻿@using Link_Perview_URL.Controllers;
+
+@{
+	var Data = (LinkPreview)ViewBag.LinkPreview;
+	string URL = ViewBag.URL;
+}
+
+<form method="post" action="" class="form">
+	<div class="form-group">
+		<label>Web Page URL:</label>
+		<input type="text" class="form-control" name="url" value="@URL" required="">
+	</div>
+	<div class="form-group">
+		<input type="submit" class="form-control btn-primary" name="submit" value="Extract" />
+	</div>
+</form>
+
+@if (Data.Title != null)
+{
+
+	<div class="card">
+		<img src="@Data.ThumbnailUrl" class="card-img-top" alt="...">
+		<div class="card-body">
+			<h5 class="card-title">@Data.Title</h5>
+			<p class="card-text">@Data.Description</p>
+			<a href="@URL" class="btn btn-primary" target="_blank">Visit</a>
+		</div>
+	</div>
+
+}
